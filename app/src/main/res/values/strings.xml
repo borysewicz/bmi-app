@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">BMI</string>
+    <string name="label_bmiForKgCmMass">Mass (kg)</string>
+    <string name="label_bmiForKgCmHeight">Height (cm)</string>
+    <string name="label_bmiForPdInMass">Mass (lb)</string>
+    <string name="label_bmiForPdInHeight">Height (in)</string>
+    <string name="label_count">Count</string>
+    <string name="label_fill">Fill the data above</string>
+    <string name="info_underweight">You\'re underweight!</string>
+    <string name="info_corrWeight">Congratulations, your BMI is correct!</string>
+    <string name="info_overweight">You\'re overweight!</string>
+    <string name="info_obese">You\'re obese!</string>
+    <string name="menu_changeUnits">Change units</string>
+    <string name="menu_about">About</string>
+    <string name="error_empty">Field cannot be empty</string>
+    <string name="label_height">height</string>
+    <string name="label_mass">mass</string>
+    <string name="label_bmi">bmi</string>
+    <string name="label_description">description</string>
+    <string name="key_descriptionColor">descriptionColor</string>
+    <string name="title_activity_about">About</string>
+    <string name="header_activity_about">BMI Calculator</string>
+    <string name="description_activity_about">A simple app to calculate your BMI.\n The activity you\'re seeing was
+        created to learn LinearLayout.
+    </string>
+    <string name="author_activity_about">Author:Michał Borysiuk\n
+    </string>
+    <string name="title_activity_info">InfoActivity</string>
+    <string name="bmi_bmi_value">bmi_value</string>
+    <string name="bmi_main_infoBtnVisibility">info_button_visibility</string>
+    <string name="bmi_main_heightHint">Enter your height</string>
+    <string name="bmi_main_massHint">Enter your mass</string>
+</resources>
