@@ -1,3 +1,23 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="bmi_margin_elements">8dp</dimen>
+    <dimen name="bmi_width_zero">0dp</dimen>
+    <dimen name="bmi_margin_bottom">8dp</dimen>
+    <dimen name="bmi_margin_top">8dp</dimen>
+    <dimen name="bmi_toolbar_width">0dp</dimen>
+    <dimen name="bmi_toolbar_height">56dp</dimen>
+    <dimen name="bmi_main_marginEditText">32dp</dimen>
+    <dimen name="bmi_main_countBtnHeight">64dp</dimen>
+    <dimen name="bmi_main_CountBtnMargin">16dp</dimen>
+    <dimen name="bmi_main_InfoBtnWidth">79dp</dimen>
+    <dimen name="bmi_about_imageHeight">192dp</dimen>
+    <dimen name="bmi_info_bmiTVTopMargin">26dp</dimen>
+    <dimen name="bmi_CatTVWdith">212dp</dimen>
+    <dimen name="bmi_catTVMarginTop">32dp</dimen>
+    <dimen name="bmi_catTVMarginStart">28dp</dimen>
+    <dimen name="bmi_catTVMarginEnd">8dp</dimen>
+    <dimen name="bmi_info_DescriptionWidth">390dp</dimen>
+    <dimen name="bmi_info_descriptionHeight">305dp</dimen>
+    <dimen name="bmi_margin_description">10dp</dimen>
+    <dimen name="bmi_info_descriptionMargin">41dp</dimen>
 </resources>

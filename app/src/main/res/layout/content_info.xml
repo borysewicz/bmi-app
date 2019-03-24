@@ -16,23 +16,23 @@
             android:adjustViewBounds="false" android:cropToPadding="false"/>
     <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/bmi_info_bmiTV" android:layout_marginTop="26dp"
+            android:layout_height="wrap_content" android:id="@+id/bmi_info_bmiTV" android:layout_marginTop="@dimen/bmi_info_bmiTVTopMargin"
             android:layout_below="@+id/bmi_info_image" android:textSize="50sp" />
     <TextView
-            android:layout_width="212dp"
+            android:layout_width="@dimen/bmi_CatTVWdith"
             android:layout_height="wrap_content" android:id="@+id/bmi_info_bmiCategoryTV"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/bmi_catTVMarginTop"
             android:layout_below="@+id/bmi_info_image" android:layout_toEndOf="@+id/bmi_info_bmiTV"
-            android:layout_marginStart="28dp" android:textSize="40sp"
+            android:layout_marginStart="@dimen/bmi_catTVMarginStart" android:textSize="40sp"
             android:textStyle="italic" android:textAllCaps="false"
-            android:layout_alignParentEnd="true" android:layout_marginEnd="8dp"/>
+            android:layout_alignParentEnd="true" android:layout_marginEnd="@dimen/bmi_catTVMarginEnd"/>
     <TextView
-            android:layout_width="390dp"
-            android:layout_height="305dp" android:id="@+id/bmi_info_descriptionTV"
-            android:layout_alignParentEnd="true" android:layout_marginEnd="10dp"
-            android:layout_alignParentStart="true" android:layout_marginStart="10dp"
+            android:layout_width="@dimen/bmi_info_DescriptionWidth"
+            android:layout_height="@dimen/bmi_info_descriptionHeight" android:id="@+id/bmi_info_descriptionTV"
+            android:layout_alignParentEnd="true" android:layout_marginEnd="@dimen/bmi_margin_description"
+            android:layout_alignParentStart="true" android:layout_marginStart="@dimen/bmi_margin_description"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="8dp" android:layout_marginTop="41dp"
+            android:layout_marginBottom="@dimen/bmi_margin_bottom" android:layout_marginTop="@dimen/bmi_info_descriptionMargin"
             android:layout_below="@+id/bmi_info_bmiTV"
             android:textAlignment="viewStart" android:visibility="visible"/>
 </RelativeLayout>

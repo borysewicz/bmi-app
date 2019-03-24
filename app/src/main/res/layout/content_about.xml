@@ -12,7 +12,7 @@
     <ImageView
             android:src="@drawable/bmiabout"
             android:layout_width="match_parent"
-            android:layout_height="192dp" android:id="@+id/bmi_about_image" android:layout_weight="1"
+            android:layout_height="@dimen/bmi_about_imageHeight" android:id="@+id/bmi_about_image" android:layout_weight="1"
             android:scaleType="centerCrop"/>
     <TextView
             android:text="@string/header_activity_about"
