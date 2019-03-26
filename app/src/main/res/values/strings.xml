@@ -25,7 +25,7 @@
     </string>
     <string name="author_activity_about">Author:Michał Borysiuk\n
     </string>
-    <string name="title_activity_info">InfoActivity</string>
+    <string name="title_activity_info">Bmi Details</string>
     <string name="bmi_bmi_value">bmi_value</string>
     <string name="bmi_main_infoBtnVisibility">info_button_visibility</string>
     <string name="bmi_main_heightHint">Enter your height</string>

@@ -23,9 +23,10 @@
             android:layout_height="wrap_content" android:id="@+id/bmi_info_bmiCategoryTV"
             android:layout_marginTop="@dimen/bmi_catTVMarginTop"
             android:layout_below="@+id/bmi_info_image" android:layout_toEndOf="@+id/bmi_info_bmiTV"
-            android:layout_marginStart="@dimen/bmi_catTVMarginStart" android:textSize="40sp"
+            android:layout_marginStart="@dimen/bmi_catTVMarginStart" android:textSize="25sp"
             android:textStyle="italic" android:textAllCaps="false"
-            android:layout_alignParentEnd="true" android:layout_marginEnd="@dimen/bmi_catTVMarginEnd"/>
+            android:layout_alignParentEnd="true" android:layout_marginEnd="@dimen/bmi_catTVMarginEnd"
+            android:textAlignment="textStart"/>
     <TextView
             android:layout_width="@dimen/bmi_info_DescriptionWidth"
             android:layout_height="@dimen/bmi_info_descriptionHeight" android:id="@+id/bmi_info_descriptionTV"
