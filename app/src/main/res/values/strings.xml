@@ -30,4 +30,6 @@
     <string name="bmi_main_infoBtnVisibility">info_button_visibility</string>
     <string name="bmi_main_heightHint">Enter your height</string>
     <string name="bmi_main_massHint">Enter your mass</string>
+    <string name="bmi_menu_history">History</string>
+    <string name="title_activity_history">History</string>
 </resources>

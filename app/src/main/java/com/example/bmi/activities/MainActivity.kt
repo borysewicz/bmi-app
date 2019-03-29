@@ -1,4 +1,4 @@
-package com.example.bmi
+package com.example.bmi.activities
 
 import android.content.Intent
 import android.graphics.Color
@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import com.example.bmi.R
 import com.example.bmi.logic.*
 import java.util.*
 
@@ -55,7 +56,8 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<ImageButton>(R.id.bmi_main_infoBtn)
         button.setOnClickListener{
             val bmi = findViewById<TextView>(R.id.bmi_main_resultTV).text
-            val intent = Intent(this,InfoActivity::class.java).putExtra(getString(R.string.bmi_bmi_value),bmi)
+            val intent = Intent(this,
+                InfoActivity::class.java).putExtra(getString(R.string.bmi_bmi_value),bmi)
             startActivity(intent)
         }
     }
@@ -71,12 +73,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-        findViewById<EditText>(R.id.bmi_main_heightET).setText(savedInstanceState?.getCharSequence(getString(R.string.label_height)) ?: "" )
-        findViewById<EditText>(R.id.bmi_main_massET).setText(savedInstanceState?.getCharSequence(getString(R.string.label_mass)) ?: "" )
-        findViewById<TextView>(R.id.bmi_main_resultTV).text = (savedInstanceState?.getCharSequence(getString(R.string.label_bmi)) ?: "" )
-        findViewById<TextView>(R.id.bmi_main_descriptionTV).text =(savedInstanceState?.getCharSequence(getString(R.string.label_description)) ?: "" )
-        findViewById<TextView>(R.id.bmi_main_resultTV).setTextColor(savedInstanceState?.getInt(getString(R.string.key_descriptionColor)) ?: Color.BLACK)
-        findViewById<ImageButton>(R.id.bmi_main_infoBtn).visibility = savedInstanceState?.getInt((getString(R.string.bmi_main_infoBtnVisibility)))  ?: View.INVISIBLE
+        findViewById<EditText>(R.id.bmi_main_heightET).setText(savedInstanceState?.getCharSequence(getString(
+            R.string.label_height
+        )) ?: "" )
+        findViewById<EditText>(R.id.bmi_main_massET).setText(savedInstanceState?.getCharSequence(getString(
+            R.string.label_mass
+        )) ?: "" )
+        findViewById<TextView>(R.id.bmi_main_resultTV).text = (savedInstanceState?.getCharSequence(getString(
+            R.string.label_bmi
+        )) ?: "" )
+        findViewById<TextView>(R.id.bmi_main_descriptionTV).text =(savedInstanceState?.getCharSequence(getString(
+            R.string.label_description
+        )) ?: "" )
+        findViewById<TextView>(R.id.bmi_main_resultTV).setTextColor(savedInstanceState?.getInt(getString(
+            R.string.key_descriptionColor
+        )) ?: Color.BLACK)
+        findViewById<ImageButton>(R.id.bmi_main_infoBtn).visibility = savedInstanceState?.getInt((getString(
+            R.string.bmi_main_infoBtnVisibility
+        )))  ?: View.INVISIBLE
     }
 
     override fun onCreateOptionsMenu(menu:Menu):Boolean {
@@ -89,9 +103,11 @@ class MainActivity : AppCompatActivity() {
         when (item?.itemId){
             R.id.bmi_menu_units -> swapUnits()
             R.id.bmi_menu_about -> startAboutActivity()
+            R.id.bmi_menu_history -> startHistoryActivity()
         }
         return true
     }
+
 
     private fun swapUnits():Boolean{
         if (bmiStrategy is BmiForKgCm) bmiStrategy = BmiForPdIn()
@@ -120,7 +136,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startAboutActivity(){
-        val intent = Intent(this,AboutActivity::class.java)
+        val intent = Intent(this, AboutActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startHistoryActivity() {
+        val intent = Intent(this, HistoryActivity::class.java)
         startActivity(intent)
     }
 

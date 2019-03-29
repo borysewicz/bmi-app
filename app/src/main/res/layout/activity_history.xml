@@ -5,9 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.InfoActivity"
-        android:label="Info">
-
+        tools:context=".activities.HistoryActivity">
 
     <com.google.android.material.appbar.AppBarLayout
             android:layout_height="wrap_content"
@@ -23,6 +21,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_info"/>
+    <include layout="@layout/content_history"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

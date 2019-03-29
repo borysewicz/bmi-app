@@ -4,4 +4,5 @@
           android:enabled="true"/>
     <item android:title="@string/menu_about" android:id="@+id/bmi_menu_about" app:showAsAction="never" android:visible="true"
           android:enabled="true"/>
+    <item android:title="@string/bmi_menu_history" android:id="@+id/bmi_menu_history"/>
 </menu>

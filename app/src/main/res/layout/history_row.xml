@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                   android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:minHeight="174dp">
+
+        <TextView
+                android:text="BMI: 50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bmi_history_row_bmi"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/bmi_history_row_mass"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/bmi_history_row_midGuideline" android:layout_marginEnd="8dp"
+                android:textSize="30sp"/>
+        <androidx.constraintlayout.widget.Guideline
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintGuide_percent="0.5"
+                android:id="@+id/bmi_history_row_midGuideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+        />
+        <TextView
+                android:text="Mass: 50kg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bmi_history_row_mass"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/bmi_history_row_midGuideline" android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text="Height: 177cm"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:id="@+id/bmi_history_row_height"
+                app:layout_constraintTop_toBottomOf="@+id/bmi_history_row_mass"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp" android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/bmi_history_row_midGuideline" android:layout_marginEnd="8dp"/>
+        <TextView
+                android:text="Obese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bmi_history_row_state"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/bmi_history_row_midGuideline"
+                android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:textSize="36sp"/>
+        <TextView
+                android:text="Date: 04.20.2019"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bmi_history_row_date"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
