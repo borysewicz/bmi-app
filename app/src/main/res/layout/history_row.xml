@@ -3,7 +3,7 @@
                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                    android:layout_height="wrap_content"
-                                   app:cardElevation="8dp" app:cardBackgroundColor="?attr/colorButtonNormal"
+                                   app:cardElevation="8dp" app:cardBackgroundColor="@android:color/background_light"
                                    app:cardCornerRadius="8dp" app:cardPreventCornerOverlap="true"
 >
 
@@ -59,7 +59,7 @@
                 app:layout_constraintStart_toStartOf="@+id/bmi_history_row_midGuideline"
                 android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="8dp" android:textSize="36sp"/>
+                android:layout_marginEnd="8dp" android:textSize="30sp" android:textAlignment="center"/>
         <TextView
                 android:text="Date: 04.20.2019"
                 android:layout_width="wrap_content"

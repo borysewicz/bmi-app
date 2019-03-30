@@ -1,13 +1,16 @@
 package com.example.bmi.adapter
 
+import android.annotation.SuppressLint
+import android.provider.Settings.System.getString
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bmi.R
+import com.example.bmi.models.HistoryViewModel
 
-class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
+class HistoryAdapter(val history: List<HistoryViewModel>) : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
 
     class HistoryViewHolder(val cardView: CardView,val bmiText: TextView, val heightText: TextView,
                             val massText: TextView,val stateText: TextView,val dateText : TextView ) : RecyclerView.ViewHolder(cardView)
@@ -24,16 +27,19 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() 
         return HistoryViewHolder(cardView,bmiText,heightText,massText,stateText,dateText)
         }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
-        holder.bmiText.text = "BMI: 100"
-        holder.dateText.text = "02.02.2019"
-        holder.heightText.text = "177cm"
-        holder.massText.text = "69 kg"
-        holder.stateText.text = "OK"
+        holder.bmiText.text = "BMI: ${history[position].bmi}"
+        holder.dateText.text = history[position].date
+        holder.heightText.text = "Height: ${history[position].height}"
+        holder.massText.text = "Mass: ${history[position].mass}"
+        holder.stateText.text = "State:\n${history[position].state}"
+        holder.bmiText.setTextColor(history[position].color)
+        holder.stateText.setTextColor(history[position].color)
     }
 
     override fun getItemCount(): Int {
-        return 10
+        return history.size
     }
 
 

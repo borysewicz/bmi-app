@@ -2,7 +2,6 @@ package com.example.bmi.activities
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -31,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         prepareCountButton()
         prepareInfoButton()
         setTextViews()
+        getSharedPreferences(getString(R.string.bmi_preferences_key),Context.MODE_PRIVATE).edit().clear().apply() // TODO: delete this later
     }
 
     private fun prepareCountButton() {
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 val stringBmi = String.format(Locale.US,"%.2f",bmi)  // using Locale.US to show the bmi value with dot separator instead of comma, helps with parsing to double for info activity
                 resBox.text = stringBmi
                 infoButton.visibility = View.VISIBLE
-                val model = HistoryViewModel(stringBmi,height.toString(),mass.toString(),BmiDescriptor().getCategory(stringBmi),getDate())
+                val model = HistoryViewModel(stringBmi,height.toString(),mass.toString(),BmiDescriptor().getCategory(stringBmi),getDate(),resBox.currentTextColor)
                 saveHistory(addToHistory(model))
             }catch (e: MassException){
                 findViewById<EditText>(R.id.bmi_main_massET).error = e.message
@@ -62,7 +62,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addToHistory(model : HistoryViewModel) : String{
-        var history = getSharedPreferences(getString(R.string.bmi_preferences_key), Context.MODE_PRIVATE).getString(getString(R.string.bmi_preferences_history),"")
+        var history = getSharedPreferences(getString(R.string.bmi_preferences_key),
+                                            Context.MODE_PRIVATE).getString(getString(R.string.bmi_preferences_history),"")
         history = HistoryModelListManger.updateHistory(history,model)
         return history
     }
@@ -117,6 +118,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu:Menu):Boolean {
         val menuInflater = menuInflater
         menuInflater.inflate(R.menu.main,menu)
+
+        return true
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        super.onPrepareOptionsMenu(menu)
+        if (getSharedPreferences(getString(R.string.bmi_preferences_key),Context.MODE_PRIVATE)
+                .contains(getString(R.string.bmi_preferences_history))){
+            menu?.findItem(R.id.bmi_menu_history)?.isEnabled = true
+        }
         return true
     }
 
@@ -181,7 +192,7 @@ class MainActivity : AppCompatActivity() {
     private fun getDate() : String{
         val time = Calendar.getInstance().time
 
-        val timeFormat = SimpleDateFormat("dd-MMM-yyyy hh:mm",Locale.getDefault())
+        val timeFormat = SimpleDateFormat("dd-MM-yyyy HH:mm",Locale.getDefault())
         return timeFormat.format(time)
     }
 }
