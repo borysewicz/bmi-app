@@ -32,4 +32,6 @@
     <string name="bmi_main_massHint">Enter your mass</string>
     <string name="bmi_menu_history">History</string>
     <string name="title_activity_history">History</string>
+    <string name="bmi_preferences_key">preferences</string>
+    <string name="bmi_preferences_history">preferences_history</string>
 </resources>

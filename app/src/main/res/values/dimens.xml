@@ -20,4 +20,5 @@
     <dimen name="bmi_info_descriptionHeight">305dp</dimen>
     <dimen name="bmi_margin_description">10dp</dimen>
     <dimen name="bmi_info_descriptionMargin">41dp</dimen>
+    <dimen name="bmi_history_cardMargin">8</dimen>
 </resources>

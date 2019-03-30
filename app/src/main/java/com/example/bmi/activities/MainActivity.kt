@@ -1,6 +1,8 @@
 package com.example.bmi.activities
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +15,11 @@ import android.widget.ImageButton
 import android.widget.TextView
 import com.example.bmi.R
 import com.example.bmi.logic.*
+import com.example.bmi.models.HistoryModelListManger
+import com.example.bmi.models.HistoryViewModel
 import java.util.*
+import java.text.SimpleDateFormat
+
 
 class MainActivity : AppCompatActivity() {
     private var bmiStrategy : Bmi = BmiForKgCm() // by default, we will count BMI in metric units
@@ -42,14 +48,29 @@ class MainActivity : AppCompatActivity() {
                 val bmi = bmiStrategy.countBmi(mass=mass,height=height)
                 interpretationBox.text = BmiDescriptor().getShortDescription(bmi)
                 resBox.setColor(bmi)
-                resBox.text = String.format(Locale.US,"%.2f",bmi)  // using Locale.US to show the bmi value with dot separator instead of comma, helps with parsing to double for info activity
+                val stringBmi = String.format(Locale.US,"%.2f",bmi)  // using Locale.US to show the bmi value with dot separator instead of comma, helps with parsing to double for info activity
+                resBox.text = stringBmi
                 infoButton.visibility = View.VISIBLE
+                val model = HistoryViewModel(stringBmi,height.toString(),mass.toString(),BmiDescriptor().getCategory(stringBmi),getDate())
+                saveHistory(addToHistory(model))
             }catch (e: MassException){
                 findViewById<EditText>(R.id.bmi_main_massET).error = e.message
             }catch (e: HeightException){
                 findViewById<EditText>(R.id.bmi_main_heightET).error = e.message
             }
         }
+    }
+
+    private fun addToHistory(model : HistoryViewModel) : String{
+        var history = getSharedPreferences(getString(R.string.bmi_preferences_key), Context.MODE_PRIVATE).getString(getString(R.string.bmi_preferences_history),"")
+        history = HistoryModelListManger.updateHistory(history,model)
+        return history
+    }
+
+    private fun saveHistory(history: String){
+        val editor = getSharedPreferences(getString(R.string.bmi_preferences_key), Context.MODE_PRIVATE).edit()
+        editor.putString(getString(R.string.bmi_preferences_history),history)
+        editor.apply()
     }
 
     private fun prepareInfoButton(){
@@ -155,5 +176,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun TextView.setColor(bmi:Double){
        this.setTextColor(Color.parseColor(BmiDescriptor().getColor(bmi)))
+    }
+
+    private fun getDate() : String{
+        val time = Calendar.getInstance().time
+
+        val timeFormat = SimpleDateFormat("dd-MMM-yyyy hh:mm",Locale.getDefault())
+        return timeFormat.format(time)
     }
 }
